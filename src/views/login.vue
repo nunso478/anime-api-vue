@@ -1,6 +1,7 @@
 <template>
-<div>
-    <div class="loginbox">
+ <div class="fundo">
+     <img src="../assets/fundo.jpg"   width="100%">
+     <div class="loginbox">
           <img src="../assets/avatar.jpg" class="avatar">
           <h1>Login  Here </h1>
           <br>
@@ -12,9 +13,7 @@
           <button type="submit">Enviar</button>
       </form>
       </div>
-</div>
-      
-  
+ </div>
 </template>
 
 <script>
@@ -44,7 +43,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .loginbox{
     width: 320px;
     height: 420px;
@@ -56,7 +55,8 @@ export default {
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 70px 30px;
-    margin-top: 50px;
+    margin-top: 100px;
+    background-image: url("../assets/bd.jpg");
 }
 .avatar{
     width: 100px;
@@ -110,4 +110,6 @@ font-size: 16px;
    background: #ffc107;
    color: #000; 
 }
+ 
+ 
 </style>

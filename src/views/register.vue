@@ -1,5 +1,6 @@
 <template>
 <div>
+    <img src="../assets/fundo.jpg"   width="100%">
     <div class="loginbox">
           <img src="../assets/avatar.jpg" class="avatar">
           <h1>Register Here </h1>
@@ -56,7 +57,8 @@ export default {
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 70px 30px;
-    margin-top: 50px;
+    margin-top: 100px;
+    background-image: url("../assets/bd.jpg");
 }
 .avatar{
     width: 100px;
