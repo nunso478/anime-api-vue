@@ -2,7 +2,7 @@
 <div>
     <div class="loginbox">
           <img src="../assets/avatar.jpg" class="avatar">
-          <h1>Login  Here </h1>
+          <h1>Register Here </h1>
           <br>
           <form @submit.prevent="submit">
           <p>email: </p>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
- data(){
+  data(){
         return{
             email:'',
             password:''
@@ -34,7 +34,7 @@ export default {
 
             })
                 .then(
-                    res => this.$store.commit('setUser',res.data)
+                    res => console.log(res)
                 )
                 .catch(
                     res => console.log(res)
