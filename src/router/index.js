@@ -4,6 +4,9 @@ import Home from '../views/Home.vue'
 import pesquisa from '../views/pesquisa.vue'
 import login from '../views/login.vue'
 import register from '../views/register.vue'
+import manga from '../views/manga.vue'
+import mangas from '../views/mangas.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -23,6 +26,14 @@ const routes = [
   {
     path: '/register',
     component: register
+  },
+  {
+    path: '/mangas', 
+    component: mangas
+  },
+  {
+    path: '/mangas/:id',
+    component: manga
   },
   {
     path: '/about',
