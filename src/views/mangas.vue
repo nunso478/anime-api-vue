@@ -1,45 +1,26 @@
 <template>
      <div class="hello">
-     <div v-for="(item, index) in resultados" :key="index">
+     <!--<div v-for="(item, index) in resultados" :key="index">
      <h3>{{item.name}} </h3>
      <img :src="item.image_url" alt="">
-     <button @click="navega(index)">{{index}}</button>
+     <button @click="navega(index)">{{index}}</button>-->
+     <pesquisamangas/>
+  
   </div>
-  </div>
+   
 </template>
 
 <script>
 import axios from "axios"
+import pesquisamangas from '@/components/pesquisamangas.vue'
 export default {
-  name: 'HelloWorld',
+  components: {
+    pesquisamangas
+  },
   props: {
     msg: String
-  },
-      data(){
-    return{
-      resultados:"",
-      pesquisa:""
-      
-    }
-  },
-  methods:{
-      navega(manga){
-          this.$router.push('/mangas/'+ manga);
-    },  
-    carregaInfo(){
-      //axios.get('https://images-api.nasa.gov/search?q=earth&media_type=image')
-      axios.get('https://api.jikan.moe/v3/manga/90/characters')
-        .then(
-          res =>{
-            this.resultados = res.data.characters //res.data.collection.items
-            console.log(res);
-          }
-        )
-    }
-  },
-  mounted (){
-       this.carregaInfo();
   }
+     
 }
 </script>
 
@@ -58,5 +39,9 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello{
+  background-image: url("../assets/fundo.jpg");
+  background-size: cover;
 }
 </style>
