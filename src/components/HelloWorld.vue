@@ -2,7 +2,7 @@
    
      <div class="hello">
     <h1>{{ msg }}</h1>
-     <input type="text" v-model="pesquisa">
+    <input type="text" v-model="pesquisa">
      <button @click="carregaInfo(pesquisa)">Pesquisar anime</button>
      <div v-for="(item, index) in resultados"
      :key="index">

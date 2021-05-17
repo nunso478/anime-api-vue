@@ -6,7 +6,8 @@ import login from '../views/login.vue'
 import register from '../views/register.vue'
 import manga from '../views/manga.vue'
 import mangas from '../views/mangas.vue'
-
+import person from '../views/person.vue'
+import favoritos from '../views/favoritos.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,6 +35,14 @@ const routes = [
   {
     path: '/mangas/:id',
     component: manga
+  },
+  {
+    path: '/person',
+    component: person
+  },
+  {
+    path: '/favoritos',
+    component: favoritos
   },
   {
     path: '/about',

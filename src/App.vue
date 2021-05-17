@@ -1,17 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/pesquisa">pesquisa</router-link> |
-      <router-link to="/mangas">mangas</router-link> |
-      <router-link to="/login">login</router-link> |
-      <router-link to="/register">register</router-link>
-    </div>
-    <router-view/>
+    <app-card cor="lightblue">
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link> |
+        <router-link to="/pesquisa">pesquisa</router-link> |
+        <router-link to="/mangas">mangas</router-link> |
+        <router-link to="/person">person</router-link> |
+        <router-link to="/favoritos">favoritos</router-link> |
+        <router-link to="/login">login</router-link> |
+        <router-link to="/register">register</router-link>
+      </div>
+      
+    </app-card>
+    <router-view />
   </div>
 </template>
-
+<script lang="ts">
+import Vue from "vue";
+import appCard from "./components/app-card.vue";
+export default Vue.extend({
+  components: {
+    appCard,
+  },
+});
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -19,6 +32,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
 }
 
 #nav {

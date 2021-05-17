@@ -1,54 +1,78 @@
 <template>
-<div>
-  <HelloWorld/>
-</div>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <input type="text" v-model="pesquisa" />
+    <button @click="carregaInfo(pesquisa)">Pesquisar anime</button>
+    <div class="casa">
+  <div v-for="(item, index) in resultados" :key="index">
+      <app-card largura="250px">
+        <h3>{{ item.title }} <button>&#10084;</button></h3>
+        <img :src="item.image_url" alt="" />
+        <!--<h3>{{item.data[0].title}}</h3>
+     <img :src="item.links[0].href" alt="">
+     <p>{{item.data[0].description}}</p> -->
+      </app-card>
+    </div>
+    </div>
+  
+  </div>
 </template>
+
 <script>
-import axios from "axios"
-import HelloWorld from '@/components/HelloWorld.vue'
+import axios from "axios";
+import appCard from "@/components/app-card.vue";
 export default {
+  name: "HelloWorld",
+  props: {
+    msg: String,
+  },
   components: {
-    HelloWorld
-  }
-}
+    appCard,
+  },
+  data() {
+    return {
+      resultados: "",
+      pesquisa: "",
+    };
+  },
+  methods: {
+    carregaInfo(query) {
+      //axios.get('https://images-api.nasa.gov/search?q=earth&media_type=image')
+      axios
+        .get("https://api.jikan.moe/v3/search/anime?q=" + query)
+        .then((res) => {
+          this.resultados = res.data.results; //res.data.collection.items
+          console.log(res.data.results);
+        });
+    },
+  },
+};
 </script>
 
-<style>
-
-h1{
-    font-weight: 900;
-    height: 36px;
-    margin: 0;
-    line-height: 0.8;
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
 }
-
- 
-.norte{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;   
+ul {
+  list-style-type: none;
+  padding: 0;
 }
-.navbar-toggler{
-    background-color: white;
-
+li {
+  display: inline-block;
+  margin: 0 10px;
 }
-#txtBusca{
-    background-color: lightblue;
-    padding-left:5px;
-    font-style:italic;
-    font-size:20px;
-    border:none;
-    height:32px;
-    width:260px;
-    border-top-left-radius: 9px;
-    border-bottom-left-radius: 9px;
+a {
+  color: #42b983;
 }
-.botaopesquisa{
-    padding: 15px;
-    background-color: black;
-    color: white;
-    font-size: 0.7rem;
-    border-top-right-radius: 20%;
-    border-bottom-right-radius: 20%;
+.hello {
+  background-image: url("../assets/fundo.jpg");
+  background-size: cover;
+  height: 100%;
+}
+.casa{
+  display: flex;
+  flex-flow: row wrap;
+  color: aqua;
 }
 </style>
