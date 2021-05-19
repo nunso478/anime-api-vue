@@ -61,13 +61,7 @@ li {
 a {
   color: #42b983;
 }
-.hello {
-  background-image: url("../assets/fundo.jpg");
-  background-size: cover;
-  height: 100%;
-  padding: 5px;
-  margin: 5px;
-}
+ 
 .casa {
   display: flex;
   flex-flow: row wrap;

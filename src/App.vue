@@ -33,6 +33,7 @@ export default Vue.extend({
   text-align: center;
   color: #2c3e50;
   height: 100vh;
+  background: none;
 }
 
 #nav {
@@ -46,5 +47,10 @@ export default Vue.extend({
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+body{
+  background-image: url("./assets/fundo.jpg");
+  background-size: cover;
+  height: 100vh;
 }
 </style>

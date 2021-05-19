@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class=" ">
     <input type="text" v-model="pesquisa" />
     <button @click="carregaInfo(pesquisa)">Pesquisar</button>
 

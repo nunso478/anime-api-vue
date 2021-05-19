@@ -319,9 +319,7 @@ h1{
     margin-bottom: 50px;
     
 }
-.home{
-    background-image: url("../assets/bd.jpg");
-}
+ 
 @media only screen and (max-width: 800px){
     .container1,.tema{
          width: 100%;
