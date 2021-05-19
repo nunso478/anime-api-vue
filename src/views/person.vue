@@ -45,10 +45,7 @@ export default {
     },
     carregaInfo(query) {
       //axios.get('https://images-api.nasa.gov/search?q=earth&media_type=image')
-      axios
-        .get(
-          "https://api.jikan.moe/v3/search/character?q=" + query + "&limit=11"
-        )
+      axios.get( "https://api.jikan.moe/v3/search/character?q=" + query + "&limit=11")
         .then((res) => {
           this.resultados = res.data.results; //res.data.collection.items
           console.log(res.data.results);
@@ -72,9 +69,7 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
-}
+
 .hello {
   background-image: url("../assets/fundo.jpg");
   background-size: cover;

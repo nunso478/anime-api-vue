@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-card cor="lightblue">
+    <app-card cor="#DADED4">
       <div id="nav">
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link> |
