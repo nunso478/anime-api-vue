@@ -1,18 +1,30 @@
 <template>
-  <div class="hello">
-    <input type="text" v-model="pesquisa" />
-    <button @click="carregaInfo(pesquisa)">Pesquisar</button>
+  <div style="display: flex">
+    <div class="hello">
+      <input type="text" v-model="pesquisa" />
+      <button @click="carregaInfo(pesquisa)">Pesquisar</button>
 
-    <div class="casa">
-      <div v-for="(item, index) in resultados" :key="index">
-        <app-card largura="250px">
-          <h3>{{ item.title }} <button>&#10084;</button></h3>
-          <img :src="item.image_url" alt="" />
-          <!--<h3>{{item.data[0].title}}</h3>
-         <img :src="item.links[0].href" alt="">
-        <p>{{item.data[0].description}}</p> -->
-        </app-card>
+      <div class="casa">
+        <div v-for="(item, index) in resultados" :key="index">
+          <app-card largura="250px">
+            <h3>
+              {{ item.title }}
+              <button @click="marcaFavorito(item)">&#10084;</button>
+            </h3>
+            <img :src="item.image_url" alt="" />
+          </app-card>
+        </div>
       </div>
+    </div>
+    <div>
+      <app-card class="favoritos" cor="grey">
+        <p>Favouritos</p>
+        <div v-for="(item, index) in favoritos" :key="index">
+          <app-card cor="white" >
+            <img :src="item.image_url" width="100%" alt="" @click="desmarcaFavorito(index)" />
+          </app-card>
+        </div>
+      </app-card>
     </div>
   </div>
 </template>
@@ -28,9 +40,16 @@ export default {
     return {
       resultados: "",
       pesquisa: "",
+      favoritos: [],
     };
   },
   methods: {
+    marcaFavorito(item) {
+      this.favoritos.push(item);
+    },
+    desmarcaFavorito(index) {
+      this.favoritos.splice(index, 1);
+    },
     carregaInfo(query) {
       //axios.get('https://images-api.nasa.gov/search?q=earth&media_type=image')
       axios
@@ -61,9 +80,18 @@ li {
 a {
   color: #42b983;
 }
- 
+.hello {
+  background-size: cover;
+  height: 100%;
+}
 .casa {
   display: flex;
   flex-flow: row wrap;
+}
+.favoritos {
+  max-width: 130px;
+  font-weight: 700;
+  color: white;
+  height: 100%;
 }
 </style>

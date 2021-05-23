@@ -6,7 +6,7 @@
     <div class="casa">
   <div v-for="(item, index) in resultados" :key="index">
       <app-card largura="250px">
-        <h3>{{ item.title }} <button>&#10084;</button></h3>
+        <h3>{{ item.title }}</h3>
         <img :src="item.image_url" alt="" />
         <!--<h3>{{item.data[0].title}}</h3>
      <img :src="item.links[0].href" alt="">
@@ -66,7 +66,7 @@ a {
   color: #42b983;
 }
 .hello {
-  background-image: url("../assets/fundo.jpg");
+   
   background-size: cover;
   height: 100%;
 }
