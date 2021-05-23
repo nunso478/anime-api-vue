@@ -16,21 +16,6 @@
         </div>
       </div>
     </div>
-    <div>
-      <app-card class="favoritos" cor="grey">
-        <p>Favouritos</p>
-        <div v-for="(item, index) in $store.state.favoritos" :key="index">
-          <app-card cor="white">
-            <img
-              :src="item.image_url"
-              width="100%"
-              alt=""
-              @click="desmarcaFavorito(index)"
-            />
-          </app-card>
-        </div>
-      </app-card>
-    </div>
   </div>
 </template>
 
@@ -55,17 +40,19 @@ export default {
     },
     desmarcaFavorito(index) {
       //this.favoritos.splice(index, 1);
-      this.$store.commit('desmarcaFavorito',index);
+      this.$store.commit("desmarcaFavorito", index);
     },
     carregaInfoCharacter(query) {
       //axios.get('https://images-api.nasa.gov/search?q=earth&media_type=image')
-      axios.get("https://api.jikan.moe/v3/search/character?q=" + query + "&limit=11")
+      axios
+        .get(
+          "https://api.jikan.moe/v3/search/character?q=" + query + "&limit=11"
+        )
         .then((res) => {
           this.resultados = res.data.results; //res.data.collection.items
           console.log(res.data.results);
         });
     },
-    
   },
 };
 </script>

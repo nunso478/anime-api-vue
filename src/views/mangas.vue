@@ -16,16 +16,7 @@
         </div>
       </div>
     </div>
-    <div>
-      <app-card class="favoritos" cor="grey">
-        <p>Favouritos</p>
-        <div v-for="(item, index) in $store.state.favoritos" :key="index">
-          <app-card cor="white" >
-            <img :src="item.image_url" width="100%" alt="" @click="desmarcaFavorito(index)" />
-          </app-card>
-        </div>
-      </app-card>
-    </div>
+     
   </div>
 </template>
 
