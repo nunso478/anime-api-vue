@@ -2,7 +2,7 @@
   <div style="display: flex">
     <div class="hello">
       <input type="text" v-model="pesquisa" />
-      <button @click="carregaInfo(pesquisa)">Pesquisar</button>
+      <button @click="carregaInfoManga(pesquisa)">Pesquisar</button>
 
       <div class="casa">
         <div v-for="(item, index) in resultados" :key="index">
@@ -19,7 +19,7 @@
     <div>
       <app-card class="favoritos" cor="grey">
         <p>Favouritos</p>
-        <div v-for="(item, index) in favoritos" :key="index">
+        <div v-for="(item, index) in $store.state.favoritos" :key="index">
           <app-card cor="white" >
             <img :src="item.image_url" width="100%" alt="" @click="desmarcaFavorito(index)" />
           </app-card>
@@ -45,20 +45,22 @@ export default {
   },
   methods: {
     marcaFavorito(item) {
-      this.favoritos.push(item);
+      //this.favoritos.push(item);
+      this.$store.commit('marcaFavorito',item);
     },
     desmarcaFavorito(index) {
-      this.favoritos.splice(index, 1);
+     // this.favoritos.splice(index, 1);
+      this.$store.commit('desmarcaFavorito',index);
     },
-    carregaInfo(query) {
+    carregaInfoManga(query) {
       //axios.get('https://images-api.nasa.gov/search?q=earth&media_type=image')
-      axios
-        .get("https://api.jikan.moe/v3/search/manga?q=" + query + "&limit=11")
+      axios.get("https://api.jikan.moe/v3/search/manga?q=" + query + "&limit=11")
         .then((res) => {
           this.resultados = res.data.results; //res.data.collection.items
           console.log(res.data.results);
         });
-    },
+    }
+   
   },
 };
 </script>

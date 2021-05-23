@@ -23,6 +23,11 @@ export default Vue.extend({
   components: {
     appCard,
   },
+  mounted (){
+    //this.$store.dispatch('carregaInfoManga')
+    this.$store.dispatch('CarregaFavoritos')
+
+  }
 });
 </script>
 <style>
