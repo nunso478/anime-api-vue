@@ -4,10 +4,8 @@
       <div class="casa">
         <div v-for="(item, index) in $store.state.favoritos" :key="index">
           <app-card largura="250px">
-            <h3>
-              {{ item.title }}
-              <button @click="marcaFavorito(item)">&#10084;</button>
-            </h3>
+            <h3>{{ item.title }}</h3>
+                <h3>{{ item.name }}</h3>
             <img :src="item.image_url" alt="" @click="desmarcaFavorito(index)" />
           </app-card>
         </div>
@@ -31,17 +29,14 @@ export default {
     };
   },
   methods: {
-    marcaFavorito(item) {
-      //this.favoritos.push(item);
-      this.$store.commit('marcaFavorito',item);
-    },
     desmarcaFavorito(index) {
      // this.favoritos.splice(index, 1);
       this.$store.commit('desmarcaFavorito',index);
     },
     carregaInfoManga(query) {
-      //axios.get('https://images-api.nasa.gov/search?q=earth&media_type=image')
+   
       axios.get("https://api.jikan.moe/v3/search/manga?q=" + query + "&limit=11")
+       axios.get("https://api.jikan.moe/v3/search/character?q=" + query + "&limit=11")
         .then((res) => {
           this.resultados = res.data.results; //res.data.collection.items
           console.log(res.data.results);

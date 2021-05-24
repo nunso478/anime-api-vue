@@ -8,7 +8,7 @@
         <div v-for="(item, index) in resultados" :key="index">
           <app-card largura="250px">
             <h3>
-              {{ item.title }}
+              {{ item.name }}
               <button @click="marcaFavorito(item)">&#9829;</button>
             </h3>
             <img :src="item.image_url" alt="" />

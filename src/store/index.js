@@ -9,8 +9,10 @@ export default new Vuex.Store({
   },
   mutations: {
     marcaFavorito(state, item) {
-      state.favoritos = [...state.favoritos, item]
-      localStorage.setItem('favoritoLocal',JSON.stringify(state.favoritos))
+      if (!(!!state.favoritos.find(res=> item.mal_id === res.mal_id))){
+        state.favoritos = [...state.favoritos, item]
+        localStorage.setItem('favoritoLocal',JSON.stringify(state.favoritos))
+      }
     },
     desmarcaFavorito(state, index) {
       state.favoritos.splice(index, 1);

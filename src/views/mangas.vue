@@ -1,6 +1,7 @@
 <template>
   <div style="display: flex">
     <div class="hello">
+      
       <input type="text" v-model="pesquisa" />
       <button @click="carregaInfoManga(pesquisa)">Pesquisar</button>
 
