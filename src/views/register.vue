@@ -3,7 +3,7 @@
     <img src="../assets/fundo.jpg" width="100%" />
     <div class="loginbox">
       <img src="../assets/avatar.jpg" class="avatar" />
-      <h1>Register Here</h1>
+      <h1>Register </h1>
       <br />
       <form @submit.prevent="submit">
         <p>email:</p>
