@@ -5,9 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    favoritos: []
+    favoritos: [],
+    user:[]
   },
   mutations: {
+    setUser(state,user){
+      state.user = user
+    },
     marcaFavorito(state, item) {
       if (!(!!state.favoritos.find(res=> item.mal_id === res.mal_id))){
         state.favoritos = [...state.favoritos, item]

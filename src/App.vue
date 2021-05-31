@@ -8,10 +8,12 @@
         <router-link to="/mangas">mangas</router-link> |
         <router-link to="/person">person</router-link> |
         <router-link to="/favoritos">favoritos</router-link> |
-        <router-link to="/login">login</router-link> |
-        <router-link to="/register">register</router-link>
+        <b-dropdown right text="Sign">
+          <router-link to="/login">login</router-link>
+          <b-dropdown-divider></b-dropdown-divider>
+          <router-link to="/register">register</router-link>
+        </b-dropdown>
       </div>
-      
     </app-card>
     <router-view />
   </div>
@@ -23,11 +25,10 @@ export default Vue.extend({
   components: {
     appCard,
   },
-  mounted (){
+  mounted() {
     //this.$store.dispatch('carregaInfoManga')
-    this.$store.dispatch('CarregaFavoritos')
-
-  }
+    this.$store.dispatch("CarregaFavoritos");
+  },
 });
 </script>
 <style>
@@ -53,7 +54,7 @@ export default Vue.extend({
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-body{
+body {
   background-image: url("./assets/fundo.jpg");
   background-size: cover;
   height: 100vh;

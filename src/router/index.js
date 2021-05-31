@@ -8,6 +8,9 @@ import manga from '../views/manga.vue'
 import mangas from '../views/mangas.vue'
 import person from '../views/person.vue'
 import favoritos from '../views/favoritos.vue'
+import PageNotFound from '../views/PageNotFound.vue'
+import store from '../store'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,16 +32,30 @@ const routes = [
     component: register
   },
   {
-    path: '/mangas', 
-    component: mangas
-  },
-  {
-    path: '/mangas/:id',
-    component: manga
+    path: '/mangas',
+    component: mangas,
+    beforeEnter: (to, from, next) => {
+      if ((store.state.user.length == 0)) {
+        console.log('user', store.state.user)
+        next('/login')
+      } else {
+        console.log('tem login')
+        next()
+      }
+    }
   },
   {
     path: '/person',
-    component: person
+    component: person,
+    beforeEnter: (to, from, next) => {
+      if ((store.state.user.length == 0)) {
+        console.log('user', store.state.user)
+        next('/login')
+      } else {
+        console.log('tem login')
+        next()
+      }
+    }
   },
   {
     path: '/favoritos',
@@ -53,7 +70,8 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
-  }
+  },
+  { path: "*", component: PageNotFound }
 ]
 
 const router = new VueRouter({

@@ -3,14 +3,15 @@
      <img src="../assets/fundo.jpg"   width="100%">
      <div class="loginbox">
           <img src="../assets/avatar.jpg" class="avatar">
-          <h1>Login  Here </h1>
+          <h1>Login</h1>
           <br>
           <form @submit.prevent="submit">
           <p>email: </p>
-          <input type="email" value="Enter Username" v-model="email" >
+          <input type="email" v-model="email" >
           <p>Password: </p>
-          <input type="password"   value="Enter Password" v-model="password">
+          <input type="password"  v-model="password"  >
           <button type="submit">Enviar</button>
+          <span>You haven´t account? </span><a href="register">Register</a>
       </form>
       </div>
  </div>
@@ -26,14 +27,15 @@ export default {
     },
     methods:{
         submit(){
-            axios.post(' ',{
+            axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key= AIzaSyAavoxvUduNSovKXzENdkKpIKbWx-L8lOI',{
                 email:this.email,
                 password: this.password,
                 returnSecureToken:true
 
             })
                 .then(
-                    res => this.$store.commit('setUser',res.data)
+                    res => this.$store.commit('setUser',res.data),
+                    this.$router.go(-1)
                 )
                 .catch(
                     res => console.log(res)

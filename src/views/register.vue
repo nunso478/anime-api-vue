@@ -11,6 +11,8 @@
         <p>Password:</p>
         <input type="password" value="Enter Password" v-model="password" />
         <button type="submit">Enviar</button>
+        <br>
+        <span>You have account? </span><a href="login">login</a>
       </form>
     </div>
   </div>
@@ -27,13 +29,16 @@ export default {
   methods: {
     submit() {
       axios
-        .post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyACYRvbItO5FYxFK_PqmY1flY-5DmJBzgY", {
+        .post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key= AIzaSyAavoxvUduNSovKXzENdkKpIKbWx-L8lOI", {
           email: this.email,
           password: this.password,
           returnSecureToken: true,
         })
-        .then((res) => console.log(res))
-        .catch((res) => console.log(res));
+        .then(
+          (res) => console.log(res)
+          
+        )
+        .catch((res) => console.log("Fail",res));
     },
   },
 };
