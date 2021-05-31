@@ -35,7 +35,7 @@ export default {
             })
                 .then(
                     res => this.$store.commit('setUser',res.data),
-                    this.$router.go(-1)
+                    this.$router.push("/mangas")
                 )
                 .catch(
                     res => console.log(res)

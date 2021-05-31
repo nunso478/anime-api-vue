@@ -1,20 +1,21 @@
 <template>
-  <div class="">
-    <h1>{{ msg }}</h1>
+  <div class="hello">
     <input type="text" v-model="pesquisa" />
-    <button @click="carregaInfo(pesquisa)">Pesquisar anime</button>
+    <button @click="carregaInfo(pesquisa)">
+      Pesquisar anime
+    </button>
+
     <div class="casa">
-  <div v-for="(item, index) in resultados" :key="index">
-      <app-card largura="250px">
-        <h3>{{ item.title }}</h3>
-        <img :src="item.image_url" alt="" />
-        <!--<h3>{{item.data[0].title}}</h3>
+      <div v-for="(item, index) in resultados" :key="index">
+        <app-card largura="250px">
+          <h3>{{ item.title }}</h3>
+          <img :src="item.image_url" alt="" />
+          <!--<h3>{{item.data[0].title}}</h3>
      <img :src="item.links[0].href" alt="">
      <p>{{item.data[0].description}}</p> -->
-      </app-card>
+        </app-card>
+      </div>
     </div>
-    </div>
-  
   </div>
 </template>
 
@@ -66,13 +67,15 @@ a {
   color: #42b983;
 }
 .hello {
-   
+  width: 100%;
   background-size: cover;
   height: 100%;
+  text-align: center;
 }
-.casa{
+.casa {
   display: flex;
   flex-flow: row wrap;
   color: aqua;
 }
+
 </style>

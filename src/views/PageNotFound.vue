@@ -322,7 +322,7 @@
 </a>
 </div>
 </template>
-<style scoped>
+<style scoped >
 
 body
 {

@@ -75,6 +75,7 @@ a {
   color: #42b983;
 }
 .hello {
+  width: 100%;
   background-size: cover;
   height: 100%;
 }

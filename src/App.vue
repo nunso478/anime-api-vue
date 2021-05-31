@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <app-card cor="#DADED4">
+    <app-card cor="#2f3640">
       <div id="nav">
         <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link> |
         <router-link to="/pesquisa">pesquisa</router-link> |
         <router-link to="/mangas">mangas</router-link> |
         <router-link to="/person">person</router-link> |
@@ -37,7 +36,7 @@ export default Vue.extend({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: rgb(41, 36, 36);
   height: 100vh;
   background: none;
 }
@@ -48,7 +47,7 @@ export default Vue.extend({
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: red;
 }
 
 #nav a.router-link-exact-active {

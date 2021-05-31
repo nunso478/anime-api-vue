@@ -73,6 +73,7 @@ li {
 }
 
 .hello {
+  width: 100%;
   background-size: cover;
   height: 100%;
 }
